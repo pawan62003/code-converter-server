@@ -12,7 +12,7 @@ app.post("/convert",async(req,res)=>{
     const { code, targetLang } = req.body;
   const apiKey = process.env.YOUR_OPENAI_API_KEY; // Replace this with your OpenAI API key
   // const prompt=`what is ${code} and ${targetLang}`
-  const prompt=`Translate the following code from JavaScript to ${targetLang}:\n${code} and only respond with converted code`
+  const prompt=`Translate the following code to ${targetLang}:\n${code} and only respond with converted code`
   try {
     const response = await axios.post('https://api.openai.com/v1/chat/completions', {
       messages:[{"role":"user","content":prompt}],
